@@ -1,0 +1,15 @@
+{
+  "num_epochs": 100,
+  "dataset_folder": "/content/dataset/",
+  "username":"",
+  "token": "",
+  "image_column_name": "id_code",
+  "label_column_name": "diagnosis",
+  "learning_rate": 0.001,
+  "config_folder": "/root/",
+  "batch_size": 16,
+  "checkpoint_folder": "/content/checkpoints/",
+  "lrfinder_logs_folder": "/content/drive/My Drive/logs/",
+  "val_size": 0.15,
+  "lrfinder_multiplier": 1.1062
+}
