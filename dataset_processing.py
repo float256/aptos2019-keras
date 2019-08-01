@@ -1,5 +1,6 @@
 import os
 import json
+from zipfile import ZipFile
 import pandas as pd
 
 
@@ -32,6 +33,18 @@ def download_dataset(username: str, token: str, dataset_folder: str,
     if command_exit_code != 0:
         raise ConnectionError("Error loading dataset. You may have "
                               "entered incorrect data.")
+
+    # Extracting the training dataset
+    os.makedirs(dataset_folder + "train_images/")
+    ZipFile(dataset_folder + "train_images.zip").extractall(
+        dataset_folder + "train_images/")
+    os.remove(dataset_folder + "train_images.zip")
+
+    # Extracting test dataset
+    os.makedirs(dataset_folder + "test_images/")
+    ZipFile(dataset_folder + "test_images.zip").extractall(
+        dataset_folder + "test_images/")
+    os.remove(dataset_folder + "test_images.zip")
 
 
 def process_csv(dataframe: pd.DataFrame, image_column_name: str,
